@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="{% static 'elestapi/css/style.css' %}">
+</head>
+<body>
+    
+    <header class="my_flex">
+        <div class="content">
+            <h2>Электронная ведомость | Sign In</h2>
+        </div>
+    </header>
+
+    <main class="my_flex">
+        <form class='for_signin_form' method="post" action="home_page">
+            <h2>Sign IN </h2>
+            {% csrf_token %}
+            <input class='create_item input_item' type="text" name="username" placeholder="username">
+            <input class='create_item input_item' type="text" name="password" placeholder="password">
+            <input class='my_button my_margin' type="submit" value="OK">
+        </form>
+        <p class="my_margin">{{ exception }}</p>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+    <script src="{% static 'elestapi/js/scripts.js' %}"></script>
+</body>
+</html>

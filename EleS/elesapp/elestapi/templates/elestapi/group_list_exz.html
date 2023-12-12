@@ -1,0 +1,22 @@
+<div class="group_list my_flex">
+    <div class="group_list_header">
+        <div class="my_flex"><h3>{{ dischip }} | {{ about_group }}</h3></div>
+        <div class="list_header_hat my_margin"><h3>№ ФИО</h3><h3>Оценка</h3></div>
+    </div>
+    <div class="group_list_body my_flex">
+        {% for item in studs %}
+            <div class="list_item my_margin">
+                <div class="list_item_name"><p>{{item.number}}</p>. <p>{{item.name}}</p></div>
+                <select type="text" class="input_for_mark">
+                    <option>н/я</option>
+                    <option >5</option>
+                    <option >4</option>
+                    <option >3</option>
+                    <option > </option> 
+                  </select>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="my_button my_margin" onclick="save_change_file()">Сохранить</button>
+</div>
+            

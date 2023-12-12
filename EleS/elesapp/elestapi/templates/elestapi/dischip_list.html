@@ -1,0 +1,67 @@
+{% for item in dischip %}
+
+    <div class="dischip my_flex my_margin">
+        <div class="dischip_header" onclick="hideblock(this)"><p>{{ item.subject }}</p></div>
+        <div class="dischip_body my_flex unactive">
+            
+            
+                <div class="cource my_flex my_margin">
+                    <div class="cource_header" onclick="hideblock(this)">
+                        <p>1 курс</p>
+                    </div>
+                    <div class="cource_body my_flex unactive">
+                    {% for item2 in  item.cources.1 %}
+                            <div class="group" onclick="open_group_list(this)">
+                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                            </div>
+                    {% endfor %}
+                    </div>
+                </div>
+
+
+                <div class="cource my_flex my_margin">
+                    <div class="cource_header" onclick="hideblock(this)">
+                        <p>2 курс</p>
+                    </div>
+                    <div class="cource_body my_flex unactive">
+                    {% for item2 in  item.cources.2 %}
+                            <div class="group" onclick="open_group_list(this)">
+                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                            </div>
+                    {% endfor %}
+                    </div>
+                </div>
+
+
+                <div class="cource my_flex my_margin">
+                    <div class="cource_header" onclick="hideblock(this)">
+                        <p>3 курс</p>
+                    </div>
+                    <div class="cource_body my_flex unactive">
+                    {% for item2 in  item.cources.3 %}
+                            <div class="group" onclick="open_group_list(this)">
+                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                            </div>
+                    {% endfor %}
+                    </div>
+                </div>
+                
+
+                <div class="cource my_flex my_margin">
+                    <div class="cource_header" onclick="hideblock(this)">
+                        <p>4 курс</p>
+                    </div>
+                    <div class="cource_body my_flex unactive">
+                    {% for item2 in  item.cources.4 %}
+                            <div class="group" onclick="open_group_list(this)">
+                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                            </div>
+                    {% endfor %}
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+{% endfor %}
+

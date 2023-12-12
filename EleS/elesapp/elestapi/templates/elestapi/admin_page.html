@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrfmiddlewaretoken" content="{{csrfmiddlewaretoken}}">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'elestapi/css/style.css' %}">
+</head>
+<body>
+    <header class="my_flex">
+        <div class="content">
+            <div class="my_header">
+                <h2>Электронная ведомость | Админ </h2>
+                <h3 class="person_name">{{ name.s_name }} {{ name.f_name }} {{ name.t_name }}</h3>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="for_button_back my_button2 unactive" id="button_back" onclick="back_home_page()"><p>Назад</p></div>
+        <a href="/"><div class="for_button_signout my_button2" id="button_back" onclick="signout()"><p>Выйти</p></div></a>
+        <div class="content my_flex">
+        
+            <div class="my_main_block my_flex my_margin">
+
+                <div class="admin_table my_flex">
+                    <div class="hat_admin_table"><p>Login</p><p>ФИО</p><p>Is_Admin</p></div>
+                    <div class="hat_admin_table_body">
+                        {% for item in teachers %}
+                        <div class="list_item my_margin">
+                            <div><p>{{item.login}}</p></div>
+                            <div><p>{{item.f_name}} {{item.s_name}} {{item.t_name}}</p></div>
+                            <div>
+                                <p>{{item.is_admin}}</p>
+                                <button class="my_button_low" onclick="delete_teach(this)">Удалить</button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                
+                <div class="for_create_teacher">
+                    <h2>Добавить преподавателя</h2>
+                    <input class="create_item input_item" name="teacher_login" type="text" placeholder="Логин">
+                    <input class="create_item input_item" name="teacher_password" type="text" placeholder="Пароль">
+                    <input class="create_item input_item" name="teacher_s_name" type="text" placeholder="Фамилия">
+                    <input class="create_item input_item" name="teacher_f_name" type="text" placeholder="Имя">
+                    <input class="create_item input_item" name="teacher_t_name" type="text" placeholder="Отчество">
+                    <div class="create_item input_item_sub">Администратор? <input  class='create_item_check' name="teacher_is_admin" type="checkbox" placeholder="Администратор?"></div>
+                    <input class='create_item my_button' type="button" value="Добавить" onclick="create_teacher()">
+                </div>
+
+
+            </div>
+
+        </div>
+    </main>
+    <footer class="my_flex">
+        <div class="content">
+            <h3></h3>
+        </div>
+    </footer>
+
+    <script src="{% static 'elestapi/js/scripts.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrfmiddlewaretoken" content="{{csrfmiddlewaretoken}}">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'elestapi/css/style.css' %}">
+</head>
+<body>
+    <header class="my_flex">
+        <div class="content">
+            <div class="my_header">
+                <h2>Электронная ведомость</h2>
+                <h3 class="person_name">{{ name.s_name }} {{ name.f_name }} {{ name.t_name }}</h3>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="for_button_back my_button2 unactive" id="button_back" onclick="back_home_page()"><p>Назад</p></div>
+        <a href="/"><div class="for_button_signout my_button2" id="button_back" onclick="signout()"><p>Выйти</p></div></a>
+        <div class="content my_flex">
+        
+            <div class="my_main_block my_flex my_margin">
+
+                {% for item in dischip %}
+
+                    <div class="dischip my_flex my_margin">
+                        <div class="dischip_header" onclick="hideblock(this)"><p>{{ item.subject }}</p></div>
+                        <div class="dischip_body my_flex unactive">
+                            
+                            
+                                <div class="cource my_flex my_margin">
+                                    <div class="cource_header" onclick="hideblock(this)">
+                                        <p>1 курс</p>
+                                    </div>
+                                    <div class="cource_body my_flex unactive">
+                                    {% for item2 in  item.cources.1 %}
+                                            <div class="group" onclick="open_group_list(this)">
+                                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                                            </div>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+
+
+                                <div class="cource my_flex my_margin">
+                                    <div class="cource_header" onclick="hideblock(this)">
+                                        <p>2 курс</p>
+                                    </div>
+                                    <div class="cource_body my_flex unactive">
+                                    {% for item2 in  item.cources.2 %}
+                                            <div class="group" onclick="open_group_list(this)">
+                                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                                            </div>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+
+
+                                <div class="cource my_flex my_margin">
+                                    <div class="cource_header" onclick="hideblock(this)">
+                                        <p>3 курс</p>
+                                    </div>
+                                    <div class="cource_body my_flex unactive">
+                                    {% for item2 in  item.cources.3 %}
+                                            <div class="group" onclick="open_group_list(this)">
+                                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                                            </div>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                
+
+                                <div class="cource my_flex my_margin">
+                                    <div class="cource_header" onclick="hideblock(this)">
+                                        <p>4 курс</p>
+                                    </div>
+                                    <div class="cource_body my_flex unactive">
+                                    {% for item2 in  item.cources.4 %}
+                                            <div class="group" onclick="open_group_list(this)">
+                                                <p> {{ item2.m_group }} | {{ item2.group }} | {{ item2.mark }}</p>
+                                            </div>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </main>
+    <footer class="my_flex">
+        <div class="content">
+            <h3></h3>
+        </div>
+    </footer>
+
+    <script src="{% static 'elestapi/js/scripts.js' %}"></script>
+</body>
+</html>
